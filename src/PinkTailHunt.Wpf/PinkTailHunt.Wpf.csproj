@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <BaseOutputPath>..\..\bin</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,7 +26,7 @@
 
   <ItemGroup>
     <Reference Include="Wpf.OfficeTheme">
-      <HintPath>..\lib\Wpf.OfficeTheme.dll</HintPath>
+      <HintPath>..\..\lib\Wpf.OfficeTheme.dll</HintPath>
     </Reference>
   </ItemGroup>
 
