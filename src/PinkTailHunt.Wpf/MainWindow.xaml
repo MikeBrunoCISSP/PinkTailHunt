@@ -1,0 +1,148 @@
+﻿<Window x:Class="PinkTailHunt.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PinkTailHunt.Wpf"
+        xmlns:dc="clr-namespace:PinkTailHunt.Wpf.ViewModels"
+        mc:Ignorable="d"
+        Title="Pink Tail Hunt" Height="250" Width="588"
+        Icon="/Views/Images/flanPrincess.ico">
+    <Window.DataContext>
+        <dc:MainWindowVM/>
+    </Window.DataContext>
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Sirens: "/>
+            <TextBox Width="100"
+                     Height="20"
+                     Text="{Binding SirensStart, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Stardusts: "
+                       Margin="5"/>
+            <TextBox Width="100"
+                     Height="20"
+                     Text="{Binding StarDustsStart, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button HorizontalAlignment="Right"
+                    Margin="10,10,20,10"
+                    Width="150"
+                    Content="Go Hunt!"
+                    Command="{Binding HuntCommand}"></Button>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Top" 
+                   LastChildFill="True">
+            <Image DockPanel.Dock="Left"
+               Stretch="Fill"
+               Source="/Views/Images/flanPrincess.jpg" Height="185" Width="261"/>
+            <TextBlock DockPanel.Dock="Top"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Text="Pink Tail Hunt Results" Width="211"/>
+            <Grid DockPanel.Dock="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Time Spent: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="0"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding TotalTimeSpent, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Random Encounters: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="1"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding Encounters, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Times Ran Away: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="2"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding RunTimes, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="3"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Flan Princesses Killed: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="3"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding FlanPrincessesKilled, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="4"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Gil Earned: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="4"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding GilEarned, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="5"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Experience Earned: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="5"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding ExpEarned, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                       Grid.Row="6"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Right"
+                       Text="Sirens Left: "/>
+                <TextBox Grid.Column="1"
+                     Grid.Row="6"
+                     IsReadOnly="True"
+                     Width="75"
+                     HorizontalAlignment="Left"
+                     Text="{Binding SirensLeft, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Grid.Column="0"
+                           Grid.Row="7"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Right"
+                           Text="Stardusts Left: "/>
+                <TextBox Grid.Column="1"
+                         Grid.Row="7"
+                         IsReadOnly="True"
+                         Width="75"
+                         HorizontalAlignment="Left"
+                         Text="{Binding StarDustsLeft, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </DockPanel>
+    </DockPanel>
+</Window>
