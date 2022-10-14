@@ -2,16 +2,17 @@
 
 public class Hunt {
     const int FLAN_PRINCESS_PARTY = 6;
-    const int FLAN_PRINCESS_BATTLE_SECONDS = 300;
-    const int FLAN_PRINCESS_GIL_AWARDED = 55555;
     const int FLAN_PRINCESS_EXP_AWARDED = 10000;
-    const int RUN_AWAY_TIME_SECONDS = 20;
 
     readonly int _timeSpentSeconds;
 
     public Hunt(int sirensStart, int startDustsStart) {
-        SirensLeft = sirensStart;
-        StarDustsLeft = startDustsStart;
+        SirensLeft = sirensStart > 99
+            ? 99
+            : sirensStart;
+        StarDustsLeft = startDustsStart > 99
+            ? 99
+            : startDustsStart;
         Random rnd = new();
         bool gotPinkTail = false;
         do {
@@ -24,7 +25,7 @@ public class Hunt {
                     }
 
                     RunTimes++;
-                    _timeSpentSeconds += RUN_AWAY_TIME_SECONDS;
+                    _timeSpentSeconds += rnd.Next(10, 20);
                 } while (true);
             }
 
@@ -36,8 +37,7 @@ public class Hunt {
             } else {
                 _timeSpentSeconds += rnd.Next(300, 420);
             }
-            _timeSpentSeconds += FLAN_PRINCESS_BATTLE_SECONDS;
-            GilEarned += rnd.Next(50000,60000);
+            GilEarned += rnd.Next(50000, 60000);
             ExpEarned += FLAN_PRINCESS_EXP_AWARDED;
             int drop = rnd.Next(1, 64);
             if (drop == 1) {
